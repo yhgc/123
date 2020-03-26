@@ -1,0 +1,37 @@
+exports.main=function functionName(event,callback){
+  let responseURL='hrrps://api.weixin.qq.com/cgi-bin/massage/custom/send?access_token='
+  const data=event .data
+  
+  baas.wxAccessToken (event.signKey).then (res=>{
+  lat parent={
+  "touser":data.fromUserName,
+  }
+  
+  switch (data.MsgType){
+	params.msgtype='text'
+	params text={
+	"context":data.content}
+	break;
+	case ' image';
+		params.msgtype='image'
+		params.image={
+		:media_id:data.mediaid}
+		break;
+	default;
+	params.msgtype='text'
+	params.text={
+	:content:you can send the massage to us.
+}
+}
+Baas request.post(responseURL+access_token, params). then(res=>{
+ cal back (null, res)
+ )} .catch(err=>{
+ 	callback(err)
+ })
+ )} catch(err=>{
+ callback(err)
+ })
+}
+  
+  
+  
