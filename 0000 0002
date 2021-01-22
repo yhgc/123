@@ -1,0 +1,17 @@
+#include<stdlib.h> 
+
+intmain(int argc,char *argv[]){ 
+
+    char *addr; 
+
+    if(argc>2){ 
+
+        printf("usage :\n%s",argv[0]);exit(0)    } 
+
+    addr=getenv(argv[1]); 
+
+    if(addr==NULL)printf("the exviroment variable  %s doesn't .'n ",argv[1]); 
+
+    else printf(" %s is located at %p\n".argv[1],addr); 
+
+    return 0} 
