@@ -1,0 +1,8 @@
+A=zeros(250,250,3);
+for i= 1:250
+  A(i,:,:)=i;
+end;
+imshow(int8(A))
+A(:,:,1)=255;
+figure;
+imshow(uint8(A))
