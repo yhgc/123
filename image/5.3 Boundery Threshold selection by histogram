@@ -1,0 +1,41 @@
+1.let Hmax1 be histogram's maximum value and h(max1)=HMax1
+
+2.set t=-1,H(ZMax1)=-H(ZMax1),H(ZMax2)=-1,ZMax2=-1
+
+3.  while(ZMax2<0)do
+Begin
+  for z=0 to l do:
+  begin
+  if(h(z)>HMax2)
+     begin
+     set HMax2=h(z),ZMax2=z
+   end
+   if(HMax2==0)
+    begin
+    set t=-1, exit
+    end
+if|ZMax1-Zmax2|<t1
+  begin
+   set H(ZMax2)=-H(ZMax2),
+   set HMax2=0,ZMax2=-1
+  end
+end
+
+4.set Z1=Min(Zmax1,Zmax2),Z2=Max(Zmax1,Zmax2)Zmin=-1,Hmin=Hmax2
+
+5.for z= z1 to z2 do:
+  begin
+    if(H(Z)<Hmin)
+      begin
+        set Hmin=H(Z),Zmin=Z
+      end
+  end
+  
+  6.if(Zmin<0) Exit
+  
+  7.if((Hmax2-hmin)>t2
+    set t=Zmin
+  else
+    exit.
+    
+8.end of algorithm
