@@ -1,0 +1,93 @@
+imread('c\photo\sky.jpg')
+INFO=imfinfo('c:\photos\sky.jpg','JPG')
+imwrite(im,'c:\temp.jpg','JPG')//image I/O
+//image display
+/*image;create and display image object
+imagesc;scale and displaty as image
+imshow; display image
+colorbar;display colorbar
+getimage;get image data from axes
+turezise;adjust display size of image
+zoom;zoom in and zomm out of 2D plot
+*/
+
+A=imread('c\photo\sky.jpg');
+imshow(A)
+
+[x,map]=imread('trees.tif');//index image
+imshow(x,map);
+
+image=ind2gray(x,map);//intensity images
+imshow(image);
+
+imshow(edge(image));//binary images
+
+im=im1+im2;
+
+im=imadd(im1,im2)
+
+A=imread('c\photo\sky_int.jpg');
+size(A)
+ans=
+  666 666
+  
+A=imread('c\photo\sky_color.jpg');
+size(A)
+ans=
+  666 666 3
+  
+//  image conversion
+/*gray2ind;intensity image to index image
+im2bw;iamge to binary
+im2double ;image to double precision
+imunit8;image to 8-bit unsigned integes
+ind2gray;indexed image to intensity image
+mat2gray;matrix tointensity image
+rgb2gray;RGB image  to garyscale
+rgb2ind;RGB iamge to indexed image
+*/
+
+A=imread('c\berry_rgb.jpg');
+imshow(A);
+figure;
+imhist(A);//直方图
+
+A=imread('c\berry_rgb.jpg');
+h=imhist(A0;
+h1=h(1:10:256);
+horz=1:10:256;
+bar(horz,h1);
+axis([0,255,0,max(h1)])
+
+A=imread('c\berry_rgb.jpg');
+imshow(A);
+figure;
+imhist(A);//直方图
+
+B=histeq(A);
+imshow(B);
+figure;
+imhist(B);//直方图
+
+>>fix([3.12 -3.12])
+ans=  3 -3
+
+>>floor([3.12 -3.12])
+ans=  3 -4
+
+>>ceil([3.12 -3.12])
+ans=  4 -3
+
+>>round(3.12 -3.12)
+ans=  0
+>>round([3.12 -3.12])
+ans=  3 -3
+
+m='myMassage';
+msgbox(m);
+
+
+
+
+
+
