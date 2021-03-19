@@ -1,1 +1,53 @@
 
+function [x,minf]=minHJ (f,a,b,eps)
+% 目标函数：f
+% 初始点：a
+% 初始步长:b
+% 精度:eps
+% 目标函数最小值时自变量：x
+% 目标函数最小值：minf
+
+format long;
+ if nargin ==3
+     eps=1.0e-6
+ end
+ 
+ l=a+0.382*(b-a);
+ u=a+0.618*(b-a);%试探点
+ k=1;
+ tol=b-a;
+ 
+ while tol>eps && k<100000
+     f1=subs(f,findsym(f),1);
+     fu=subs(f,findsym(f),u);%改变区间左端点
+     if f1>fu
+         a=1;
+         l=u;
+         u=a+0.618*(b-a);%缩短搜索区间
+     else
+         b=u;
+         u=l;
+         l=a+0.382*(b-a);
+     end
+     k=k+1;
+     tol=abs(b-a);
+ end
+ if k==100000
+     disp('can''t find the min');
+     x=NaN;
+     minf=NaN;
+     return;
+ end
+ x=(a+b)/2;
+ minf=subs(f,findsym(f),x);
+ format short;
+ -----------------------------------
+ >>x=(a-b)/2
+ >>f=t^4-t^2-2*t+5;
+ [x,fx]=minHJ(f,-10,10)
+     
+     
+     
+     
+
+
