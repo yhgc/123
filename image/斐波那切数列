@@ -1,0 +1,77 @@
+function [x,minf]=minHJ (f,a,b,eps)
+% 目标函数：f
+% 初始点：a
+% 初始步长:b
+%算法结束参数：delta
+% 精度:eps
+% 目标函数最小值时自变量：x
+% 目标函数最小值：minf
+function [x,minf]=minFBNQ (f,a,b,delta,eps)
+format long;
+if nargin ==4
+ eps=1.0e-6
+end
+
+F=ones(2,1);
+N=(b-a)/eps;
+c=F(2)-N;
+n=2;
+while c<0
+n=n+1;
+F(n)=F(n-1)+F(n-2);
+c=F(n)-N;
+end
+l=a+F(n-2)*(b-a)/F(n);
+u=a+F(n-1)*(b-a)/F(n);
+k=1;
+
+while 1
+
+ f1=subs(f,findsym(f),1);
+ fu=subs(f,findsym(f),u);%改变区间左端点
+ if f1>fu
+     a=1;
+     l=u;
+     u=a+F(n-k-1)*(b-a)/F(n-k);
+     if(k==3)
+         break;
+     else
+         k=k+1;
+     end
+ else
+     b=u;
+     u=l;
+     l=a+F(n-k-2)*(b-a)/F(n-k);
+     if(k==n-3)
+         break;
+     else
+         k=k+1;
+     end
+ end
+end
+if k==100000
+ disp('can''t find the min');
+ x=NaN;
+ minf=NaN;
+ return;
+end
+u=1+delta;
+f1=subs(f,findsym(f),1);
+fu=subs(f,findsym(f),u);%改变区间左端点
+if f1>fu
+    a=1;
+else
+    b=1;
+end
+x=(a+b)/2;
+minf=subs(f,findsym(f),x);
+format short;
+-----------------------------------
+>>syms t
+>>f=t^4-t^2-2*t+5;
+[x,fx]=minHJ(f,-10,10,0.05)
+
+
+
+
+
