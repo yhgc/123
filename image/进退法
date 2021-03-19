@@ -17,8 +17,8 @@ format long;
  while 1
      x4=x1+h;
      k==k+1;
-     f4=subs(f,findsum(f),x4);
-     f1=subs(f,findsum(f),x1);
+     f4=subs(f,findsym(f),x4);
+     f1=subs(f,findsym(f),x1);
      if x4<x1
          x2=x1;
          x1=x4;
