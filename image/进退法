@@ -1,4 +1,4 @@
-function [minx,maxx]=minJT (F,X0,H0,EPS)
+function [minx,maxx]=minJT (f,x0,h0,eps)
 % 目标函数：F
 % 初始点：x0
 % 初始步长:h0
